@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>FireHome</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="wall" width="960" height="540"></canvas>
+<div id="photo"></div>
+<div id="shade"></div>
+
+<div id="stage">
+  <div id="page">
+    <header id="top">
+      <div id="hello">
+        <div id="greet"></div>
+        <div id="clock"><span id="time"></span><span id="ampm"></span></div>
+        <div id="date"></div>
+      </div>
+      <div id="weather"><span id="wicon"></span><div><div id="wtemp"></div><div id="wcond"></div></div></div>
+      <nav id="actions">
+        <button class="round focusable" data-act="home" tabindex="0"><svg viewBox="0 0 24 24"><path d="M12 3 2.5 11.5H5V20h5.5v-5.5h3V20H19v-8.5h2.5z"/></svg><span class="tip">Home</span></button>
+        <button class="round focusable" data-act="hidden" tabindex="0"><svg viewBox="0 0 24 24"><path d="M12 5C6.5 5 2.7 9 1.5 12c1.2 3 5 7 10.5 7s9.3-4 10.5-7C21.3 9 17.500 5 12 5zm0 11.500a4.500 4.500 0 1 1 0-9 4.500 4.500 0 0 1 0 9zm0-7a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5z"/></svg><span class="tip" id="hiddenTip">Hidden apps</span></button>
+        <button class="round focusable" data-act="bg" tabindex="0"><svg viewBox="0 0 24 24"><path d="M4 5h16a1.500 1.500 0 0 1 1.500 1.500v11A1.500 1.500 0 0 1 20 19H4a1.500 1.500 0 0 1-1.500-1.500v-11A1.500 1.500 0 0 1 4 5zm1 11.500h14l-4.200-5.600-3.300 4.200-2.300-2.800z"/></svg><span class="tip">Background</span></button>
+        <button class="round focusable" data-act="settings" tabindex="0"><svg viewBox="0 0 24 24"><path d="M19.400 13a7.800 7.800 0 0 0 0-2l2.100-1.600-2-3.500-2.500 1a7.700 7.700 0 0 0-1.700-1L15 3.200h-4l-.4 2.700a7.700 7.700 0 0 0-1.700 1l-2.500-1-2 3.500L6.600 11a7.800 7.800 0 0 0 0 2l-2.100 1.600 2 3.500 2.500-1a7.700 7.700 0 0 0 1.700 1l.4 2.700h4l.4-2.700a7.700 7.700 0 0 0 1.700-1l2.500 1 2-3.500zM13 15.500a3.500 3.500 0 1 1 0-7 3.500 3.500 0 0 1 0 7z" transform="translate(-1 0)"/></svg><span class="tip">Settings</span></button>
+      </nav>
+    </header>
+
+    <section id="favs">
+      <h2>Favorites</h2>
+      <div class="row"><div class="track" id="favTrack"></div></div>
+    </section>
+
+    <section id="apps">
+      <h2>Apps</h2>
+      <div id="grid"></div>
+    </section>
+  </div>
+</div>
+
+<div id="hint">Press &#9776; Menu (or hold the center button) on an app for options</div>
+
+<div id="overlay" hidden>
+  <div class="panel">
+    <h3>Background</h3>
+    <div id="thumbs"></div>
+    <div id="pills">
+      <button class="pill focusable" id="animBtn" tabindex="0">Animation: On</button>
+      <button class="pill focusable" id="previewBtn" tabindex="0">Preview</button>
+      <button class="pill focusable" id="closeBtn" tabindex="0">Close</button>
+    </div>
+    <p id="photoHelp"></p>
+  </div>
+</div>
+
+<div id="menu" hidden>
+  <div class="panel small">
+    <div id="menuTitle"></div>
+    <div id="menuItems"></div>
+  </div>
+</div>
+
+<div id="toast" hidden></div>
+
+<script src="config.js"></script>
+<script src="wallpapers.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
