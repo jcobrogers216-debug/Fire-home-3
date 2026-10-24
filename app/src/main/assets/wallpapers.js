@@ -287,7 +287,7 @@
   }
 
   var W = 960, H = 540;
-  var running = null, raf = 0, last = 0, clock = 0;
+  var running = null, raf = 0, last = 0, clock = 0, pausedUntil = 0;
 
   function stop() {
     running = null;
@@ -297,8 +297,9 @@
   function frame(now) {
     raf = requestAnimationFrame(frame);
     if (!running) return;
+    if (now < pausedUntil) { last = now; return; }   // stand still while the screen is moving
     var el = now - last;
-    if (el < 33) return;           // ~30 fps cap keeps the Fire Stick cool
+    if (el < 42) return;           // ~24 fps cap keeps the Fire Stick cool
     last = now;
     var dt = Math.min(el / 1000, 0.1);
     clock += dt;
@@ -331,6 +332,7 @@
       last = 0;
       raf = requestAnimationFrame(frame);
     },
+    pause: function (ms) { pausedUntil = (window.performance ? performance.now() : Date.now()) + ms; },
     stop: stop
   };
 })();

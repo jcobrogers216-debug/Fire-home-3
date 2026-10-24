@@ -281,6 +281,7 @@
   }
 
   function move(dir) {
+    if (window.Wall && Wall.pause) Wall.pause(600);
     var items = scopeItems(), cur = document.activeElement;
     if (!cur || indexOf(items, cur) < 0) { focusEl(items[0]); return; }
     var r = cur.getBoundingClientRect();
